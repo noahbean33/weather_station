@@ -6,9 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "ESP32 sensor board")
-		(date "2024-11-22")
+		(date "2026-01-24")
 		(rev "1")
-		(company "Tech Explorations")
 		(comment 1 "Power and battery management")
 	)
 	(lib_symbols
@@ -4117,34 +4116,14 @@
 		)
 		(uuid "7ff9ea84-b5ed-4644-8d77-399674277d6a")
 	)
-	(text_box "See ESP32 S3 Dev Kit reference design:\nhttps://txplo.re/esp32s3ref"
-		(exclude_from_sim no)
-		(at 86.6775 181.9275 0)
-		(size 43.815 7.3025)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "917922d8-09c3-47f5-9ec5-48b2a0eeeb79")
-	)
-	(text_box "The SBU1 and SBU2 pins on a USB-C connector are Sideband Use (SBU) pins. They are part of the USB-C standard and serve specialized roles depending on the application, primarily in Alternate Modes (e.g., DisplayPort, Thunderbolt) and certain USB-C accessories.\n\nFor basic USB 2.0/3.0 operation (like in your ESP32-C3-02 design), the SBU pins are not used and can be left unconnected or handled with optional protective measures."
+	(text_box "The SBU1 and SBU2 pins on a USB-C connector are Sideband Use (SBU) pins. They are part of the USB-C standard and serve specialized roles depending on the application, primarily in Alternate Modes and certain USB-C accessories.\n\nFor basic USB 2.0/3.0 operation, the SBU pins are not used and can be left unconnected or handled with optional protective measures."
 		(exclude_from_sim yes)
 		(at 106.045 42.545 0)
 		(size 53.34 25.4)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width 0)
-			(type default)
+			(type solid)
 		)
 		(fill
 			(type none)

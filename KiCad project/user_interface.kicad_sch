@@ -4,6 +4,10 @@
 	(generator_version "9.0")
 	(uuid "6a3f52f3-16a6-4e94-9323-604014356da8")
 	(paper "A4")
+	(title_block
+		(date "2026-01-24")
+		(rev "1")
+	)
 	(lib_symbols
 		(symbol "B4B-XH-AM__LF__SN_:B4B-XH-AM__LF__SN_"
 			(pin_names

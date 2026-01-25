@@ -4,6 +4,10 @@
 	(generator_version "9.0")
 	(uuid "490a4169-5176-49ae-a83e-aaee45074fe4")
 	(paper "A4")
+	(title_block
+		(date "2026-01-24")
+		(rev "1")
+	)
 	(lib_symbols
 		(symbol "35WR100KLFTR:35WR100KLFTR"
 			(pin_names
