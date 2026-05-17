@@ -1,56 +1,182 @@
-## Project Summary: Custom IoT PCB with ESP32-C3-02 and TP4056 Li-ion Charger
+ # ESP32 Weather Station
 
-This project involves the design and development of a custom PCB for an IoT application powered by the ESP32-C3-02 SoC. The board includes integrated power management features using the TP4056 Li-ion battery charger IC, enabling efficient and safe charging of a single-cell Li-ion battery.
+A feature-rich IoT weather station built on the ESP32 microcontroller using ESP-IDF (Espressif IoT Development Framework) and FreeRTOS. This project monitors temperature and humidity via a DHT22 sensor, provides a web interface for configuration and monitoring, and publishes sensor data to AWS IoT Core via MQTT.
 
-### Key Features
+## Features
 
-- **Microcontroller**: ESP32-C3-02 SoC for Wi-Fi and BLE connectivity.
-- **Power Management**: TP4056 IC for single-cell Li-ion battery charging with thermal regulation.
-- **Battery Protection**: Integrated under-voltage lockout and trickle charging.
-- **Sensors and Modules**:
-  - BME280 for temperature, humidity, and pressure sensing.
-  - Ambient light and sound sensors.
-  - Mini SD card reader for data storage.
-  - Flash memory for additional storage.
-- **Display**: I2C OLED for real-time data visualization.
-- **Power Inputs**:
-  - USB-C connector for charging and data transfer.
-  - LiPo battery connector with onboard charging circuitry.
-- **Indicators**: LED indicators for charge status (charging and full).
+### Core Functionality
+- **DHT22 Temperature & Humidity Monitoring** - Reads environmental data from DHT22 sensor
+- **WiFi Connectivity** - Dual-mode operation (Access Point + Station mode)
+- **Web-Based Configuration** - HTTP server with responsive web interface for device setup
+- **AWS IoT Integration** - Publishes sensor data to AWS IoT Core using MQTT protocol
+- **OTA Firmware Updates** - Upload new firmware over-the-air via web interface
+- **RGB LED Status Indicators** - Visual feedback for connection status and states
+- **WiFi Reset Button** - Hardware button with interrupt-based WiFi credential reset
 
-### Design Highlights
+### Advanced Features
+- **Non-Volatile Storage (NVS)** - Persistent storage of WiFi credentials
+- **SNTP Time Synchronization** - Automatic network time sync for timestamped data
+- **Dual-Core Utilization** - Optimized task distribution across both ESP32 cores
+- **FreeRTOS Task Management** - Multi-threaded architecture with message queues and semaphores
+- **State Machine Design** - Robust WiFi connection management with retry logic
 
-1. **Power Supply Integration**:
-   - USB-C provides power for both charging and system operation.
-   - TP4056 handles battery charging and protection.
-   - Power supplied to the ESP32-C3-02 is regulated for stability.
+## Hardware Requirements
 
-2. **Modular Architecture**:
-   - Supports various sensors and peripherals for IoT applications.
-   - Expandable via additional I2C devices.
+- **ESP32 Development Board** (any ESP32 DevKit)
+- **DHT22 Temperature/Humidity Sensor**
+- **RGB LED** (common cathode or anode with appropriate resistors)
+- **Push Button** (for WiFi reset functionality)
+- **Resistors** (220Ω-330Ω for LED current limiting)
+- **Breadboard and Jumper Wires**
 
-3. **Safe and Efficient Charging**:
-   - Programmable charging current using an external resistor.
-   - Automatic charge termination and battery protection.
+### Default GPIO Pin Configuration
 
-4. **Compact and Reliable Layout**:
-   - Optimized PCB traces for minimal power loss.
-   - Thermal management for the TP4056 and other components.
+```
+DHT22 Sensor:     GPIO 25
+RGB LED Red:      GPIO 21
+RGB LED Green:    GPIO 22
+RGB LED Blue:     GPIO 23
+Reset Button:     (Configure in wifi_reset_button.c)
+```
 
-### Applications
+## Software Requirements
 
-- IoT edge devices for environmental monitoring.
-- Battery-powered data logging systems.
-- Prototyping platform for ESP32-based projects.
+- **ESP-IDF v4.4 or later** (Espressif IoT Development Framework)
+- **CMake** (version 3.5 or later)
+- **Python 3.x** (for ESP-IDF build tools)
+- **AWS Account** (for AWS IoT Core connectivity)
+- **Web Browser** (Chrome/Firefox recommended for web interface)
 
-### Repository Contents
+## Installation & Setup
 
-- **Schematic and PCB Layout**: KiCad files for the board design.
-- **Firmware**: Source code for the ESP32-C3-02 to interface with sensors and peripherals.
-- **Documentation**:
-  - Datasheets for the TP4056 and other components.
-  - Assembly instructions.
-  - Testing procedures.
-- **License**: MIT License.
+### Configure AWS IoT Credentials
 
-This repository is a complete resource for designing and building a robust IoT solution with integrated power management and ESP32 connectivity.
+Create a `main/certs/` directory and add your AWS IoT certificates:
+
+```bash
+mkdir -p main/certs
+```
+
+Place the following files in `main/certs/`:
+- `aws_root_ca_pem` - Amazon Root CA certificate
+- `certificate_pem_crt` - Device certificate
+- `private_pem_key` - Private key
+
+**Note:** These certificate files are gitignored for security.
+
+### Configure Project Settings
+
+Edit `main/aws_iot.h` to set your AWS IoT client ID:
+
+```c
+#define CONFIG_AWS_EXAMPLE_CLIENT_ID "Your_ESP32_Client_ID"
+```
+
+Optionally modify WiFi AP settings in `main/wifi_app.h`:
+
+```c
+#define WIFI_AP_SSID         "ESP32_AP"
+#define WIFI_AP_PASSWORD     "password"
+```
+
+### 5. Build and Flash
+
+```bash
+# Set ESP-IDF environment variables
+. $HOME/esp/esp-idf/export.sh
+
+# Build the project
+idf.py build
+
+# Flash to ESP32 (replace PORT with your serial port)
+idf.py -p PORT flash monitor
+```
+
+## Usage
+
+### Initial Setup
+
+1. **Power on the ESP32** - The RGB LED will indicate status
+2. **Connect to ESP32 Access Point** - Look for WiFi network "ESP32_AP" (password: "password")
+3. **Open Web Interface** - Navigate to `http://192.168.0.1` in your browser
+4. **Configure WiFi** - Enter your home/office WiFi credentials through the web interface
+5. **Connect** - ESP32 will connect to your WiFi network and begin operation
+
+### Web Interface Features
+
+- **WiFi Configuration** - Connect ESP32 to your wireless network
+- **Connection Status** - View current WiFi connection details and signal strength (RSSI)
+- **Sensor Data** - Real-time temperature and humidity readings
+- **Time Display** - Synchronized network time
+- **OTA Updates** - Upload new firmware binaries for wireless updates
+- **WiFi Disconnect** - Manually disconnect from current network
+
+### AWS IoT Integration
+
+Once connected to WiFi, the device will:
+- Connect to AWS IoT Core using MQTT over TLS
+- Publish sensor data (temperature, humidity, RSSI) to configured topics
+- Subscribe to command topics for remote control
+
+## Project Structure
+
+```
+weather_station/
+├── main/
+│   ├── main.c                  # Application entry point
+│   ├── wifi_app.c/h            # WiFi application and state machine
+│   ├── http_server.c/h         # HTTP server implementation
+│   ├── aws_iot.c/h             # AWS IoT MQTT client
+│   ├── DHT22.c/h               # DHT22 sensor driver
+│   ├── rgb_led.c/h             # RGB LED control
+│   ├── app_nvs.c/h             # Non-volatile storage management
+│   ├── sntp_time_sync.c/h      # SNTP time synchronization
+│   ├── wifi_reset_button.c/h   # Reset button with ISR
+│   ├── tasks_common.h          # FreeRTOS task configuration
+│   ├── webpage/                # Web interface files
+│   │   ├── index.html
+│   │   ├── app.js
+│   │   ├── app.css
+│   │   └── jquery-3.3.1.min.js
+│   └── certs/                  # AWS IoT certificates (gitignored)
+├── CMakeLists.txt              # Root CMake configuration
+├── partitions.csv              # Custom partition table for OTA
+└── README.md
+```
+
+## Architecture
+
+### FreeRTOS Task Distribution
+
+**Core 0:**
+- WiFi Application Task
+- HTTP Server Task
+- HTTP Server Monitor Task
+- WiFi Reset Button Task
+
+**Core 1:**
+- DHT22 Sensor Task
+- SNTP Time Sync Task
+- AWS IoT Task
+
+### Communication
+
+- **Message Queues** - Inter-task communication for WiFi events and HTTP server messages
+- **Event Groups** - WiFi connection synchronization
+- **Binary Semaphores** - ISR signaling from hardware button
+
+## Troubleshooting
+
+### WiFi Connection Issues
+- Verify SSID and password are correct
+- Check WiFi signal strength
+- Press and hold the reset button to clear stored credentials
+
+### AWS IoT Connection Failures
+- Verify certificates are correctly placed in `main/certs/`
+- Check AWS IoT thing name and endpoint configuration
+- Ensure device certificate is activated in AWS IoT console
+
+### OTA Update Failures
+- Ensure firmware binary is built for OTA partitions
+- Check that new firmware size fits within partition size (1984KB)
