@@ -1,6 +1,21 @@
-/*
- * app_nvs.c
+/**
+ * @file app_nvs.c
+ * @brief Non-Volatile Storage (NVS) Interface for WiFi Credentials - Implementation
  *
+ * This file implements the NVS storage operations for WiFi station mode credentials.
+ * It provides save, load, and clear functionality using the ESP-IDF NVS library,
+ * which stores key-value pairs in a dedicated flash partition.
+ *
+ * @details
+ * NVS operations performed:
+ * - Save: Opens namespace in read/write mode, stores SSID and password as blobs, commits
+ * - Load: Opens namespace in read-only mode, retrieves SSID and password blobs
+ * - Clear: Opens namespace in read/write mode, erases all entries, commits
+ *
+ * The namespace "stacreds" isolates WiFi credentials from other NVS data used
+ * by the application or ESP-IDF system components.
+ *
+ * @note All functions include error logging for debugging NVS operation failures.
  */
 
 #include <stdbool.h>
@@ -13,12 +28,20 @@
 #include "app_nvs.h"
 #include "wifi_app.h"
 
-// Tag for logging to the monitor
+/** @brief Log tag for NVS-related ESP_LOG messages */
 static const char TAG[] = "nvs";
 
-// NVS name space used for station mode credentials
+/** @brief NVS namespace identifier for storing WiFi station mode credentials */
 const char app_nvs_sta_creds_namespace[] = "stacreds";
 
+/**
+ * @brief Saves WiFi station credentials (SSID and password) to NVS flash.
+ *
+ * Opens the NVS namespace, writes the SSID and password as binary blobs,
+ * and commits the changes to ensure they persist across power cycles.
+ *
+ * @return ESP_OK on success, or an error code if any NVS operation fails.
+ */
 esp_err_t app_nvs_save_sta_creds(void)
 {
 	nvs_handle handle;
@@ -67,6 +90,15 @@ esp_err_t app_nvs_save_sta_creds(void)
 	return ESP_OK;
 }
 
+/**
+ * @brief Loads WiFi station credentials from NVS flash into the wifi_app configuration.
+ *
+ * Attempts to open the NVS namespace and read previously stored SSID and password.
+ * On success, populates the wifi_app's wifi_config_t structure with the retrieved values.
+ * Validates that the SSID is non-empty before returning success.
+ *
+ * @return true if valid credentials were loaded, false otherwise.
+ */
 bool app_nvs_load_sta_creds(void)
 {
 	nvs_handle handle;
@@ -119,6 +151,15 @@ bool app_nvs_load_sta_creds(void)
 	}
 }
 
+/**
+ * @brief Clears all WiFi station mode credentials from NVS flash.
+ *
+ * Opens the NVS namespace and erases all stored key-value pairs (SSID and password).
+ * After erasing, commits the changes to ensure the credentials are permanently removed.
+ * This is typically called when the user requests a WiFi disconnect/reset.
+ *
+ * @return ESP_OK on success, or an error code if any NVS operation fails.
+ */
 esp_err_t app_nvs_clear_sta_creds(void)
 {
 	nvs_handle handle;

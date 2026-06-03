@@ -1,3 +1,30 @@
+/**
+ * @file DHT22.c
+ * @brief DHT22 (AM2302) Temperature and Humidity Sensor Driver - Implementation
+ *
+ * This file implements the driver for the DHT22 (AM2302) digital temperature and
+ * humidity sensor using the ESP32's GPIO peripheral. The DHT22 communicates over
+ * a proprietary single-wire protocol with precise microsecond-level timing.
+ *
+ * @details Communication Protocol:
+ * The DHT22 protocol consists of:
+ * 1. MCU sends start signal: pull data line LOW for >1ms, then HIGH for 20-40us
+ * 2. Sensor responds: pulls LOW for 80us, then HIGH for 80us
+ * 3. Sensor transmits 40 bits of data:
+ *    - Each bit starts with a 50us LOW signal
+ *    - A '0' bit is followed by 26-28us HIGH
+ *    - A '1' bit is followed by 70us HIGH
+ * 4. Data format: [16-bit Humidity][16-bit Temperature][8-bit Checksum]
+ *
+ * The driver creates a FreeRTOS task that reads the sensor every 4 seconds
+ * (minimum interval per datasheet is 2 seconds) and stores results in
+ * module-level global variables.
+ *
+ * @author Ricardo Timmermann (Jun 2017)
+ * @note Based on code from Adafruit Industries and Sam Johnston.
+ *       This code is in the Public Domain (or CC0 licensed).
+ */
+
 /*------------------------------------------------------------------------------
 
 	DHT22 temperature & humidity sensor AM2302 (DHT22) driver for ESP32
@@ -31,11 +58,11 @@
 
 // == global defines =============================================
 
-static const char* TAG = "DHT";
+static const char* TAG = "DHT";             /**< Log tag for ESP_LOG messages from this module */
 
-int DHTgpio = 4;				// my default DHT pin = 4
-float humidity = 0.;
-float temperature = 0.;
+int DHTgpio = 4;				/**< GPIO pin number for DHT22 data line (default: GPIO 4) */
+float humidity = 0.;			/**< Last successfully read humidity value (% RH) */
+float temperature = 0.;			/**< Last successfully read temperature value (degrees Celsius) */
 
 // == set the DHT used pin=========================================
 
@@ -232,7 +259,15 @@ uint8_t bitInx = 7;
 }
 
 /**
- * DHT22 Sensor task
+ * @brief FreeRTOS task that periodically reads the DHT22 sensor.
+ *
+ * This task runs in an infinite loop, reading temperature and humidity
+ * from the DHT22 sensor every 4 seconds. If a read error occurs, it is
+ * logged via errorHandler() but the task continues running. Successfully
+ * read values are stored in module-level global variables accessible
+ * via getTemperature() and getHumidity().
+ *
+ * @param pvParameter Unused task parameter (NULL).
  */
 static void DHT22_task(void *pvParameter)
 {
@@ -255,6 +290,12 @@ static void DHT22_task(void *pvParameter)
 	}
 }
 
+/**
+ * @brief Creates and starts the DHT22 sensor reading task.
+ *
+ * Launches the DHT22_task pinned to the core specified in tasks_common.h.
+ * The task will immediately begin reading sensor data upon creation.
+ */
 void DHT22_task_start(void)
 {
 	xTaskCreatePinnedToCore(&DHT22_task, "DHT22_task", DHT22_TASK_STACK_SIZE, NULL, DHT22_TASK_PRIORITY, NULL, DHT22_TASK_CORE_ID);

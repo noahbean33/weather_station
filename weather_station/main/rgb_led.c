@@ -1,6 +1,23 @@
-/*
- * rgb_led.c
+/**
+ * @file rgb_led.c
+ * @brief RGB LED Status Indicator - Implementation
  *
+ * This file implements PWM-based RGB LED control using the ESP32's LEDC peripheral.
+ * The LED provides visual feedback about the weather station's operational state
+ * through different color combinations.
+ *
+ * @details
+ * Implementation Notes:
+ * - Uses LEDC high-speed mode with Timer 0 for all three channels
+ * - PWM frequency: 100 Hz (sufficient for LED dimming, no visible flicker)
+ * - Duty resolution: 8-bit (values 0-255 map to 0-100% duty cycle)
+ * - Lazy initialization: PWM hardware is configured on first use
+ * - Each public function checks initialization state before setting color
+ *
+ * Channel Mapping:
+ * - Channel 0: Red   (GPIO 21)
+ * - Channel 1: Green (GPIO 22)
+ * - Channel 2: Blue  (GPIO 23)
  */
 
 #include <stdbool.h>
@@ -8,10 +25,10 @@
 #include "driver/ledc.h"
 #include "rgb_led.h"
 
-// RGB LED Configuration Array
+/** @brief LEDC channel configuration array for the three RGB color channels */
 ledc_info_t ledc_ch[RGB_LED_CHANNEL_NUM];
 
-// handle for rgb_led_pwm_init
+/** @brief Flag tracking whether PWM hardware has been initialized (lazy init pattern) */
 bool g_pwm_init_handle = false;
 
 /**
@@ -85,6 +102,10 @@ static void rgb_led_set_color(uint8_t red, uint8_t green, uint8_t blue)
 	ledc_update_duty(ledc_ch[2].mode, ledc_ch[2].channel);
 }
 
+/**
+ * @brief Sets LED to purple - indicates WiFi application has started.
+ * Initializes PWM on first call. Color: R=255, G=102, B=255 (purple/magenta).
+ */
 void rgb_led_wifi_app_started(void)
 {
 	if (g_pwm_init_handle == false)
@@ -95,6 +116,10 @@ void rgb_led_wifi_app_started(void)
 	rgb_led_set_color(255, 102, 255);
 }
 
+/**
+ * @brief Sets LED to yellow-green - indicates HTTP server is running.
+ * Initializes PWM on first call. Color: R=204, G=255, B=51 (yellow-green).
+ */
 void rgb_led_http_server_started(void)
 {
 	if (g_pwm_init_handle == false)
@@ -105,7 +130,10 @@ void rgb_led_http_server_started(void)
 	rgb_led_set_color(204, 255, 51);
 }
 
-
+/**
+ * @brief Sets LED to cyan-green - indicates successful WiFi STA connection.
+ * Initializes PWM on first call. Color: R=0, G=255, B=153 (cyan-green).
+ */
 void rgb_led_wifi_connected(void)
 {
 	if (g_pwm_init_handle == false)

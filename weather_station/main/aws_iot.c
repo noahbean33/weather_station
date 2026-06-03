@@ -1,3 +1,36 @@
+/**
+ * @file aws_iot.c
+ * @brief AWS IoT Core MQTT Client - Implementation
+ *
+ * This file implements the AWS IoT Core MQTT client for the ESP32 weather station.
+ * It establishes a secure TLS connection to AWS IoT Core, subscribes to a topic
+ * for receiving commands, and periodically publishes sensor telemetry data.
+ *
+ * @details
+ * Functionality:
+ * - Initializes the AWS IoT MQTT client with TLS mutual authentication
+ * - Connects to AWS IoT Core endpoint with configurable retry logic
+ * - Subscribes to "test_topic/esp32" for incoming messages
+ * - Publishes WiFi RSSI (QoS 0) and temperature/humidity data (QoS 1) every 3 seconds
+ * - Supports automatic reconnection with exponential backoff on disconnect
+ *
+ * Security:
+ * - Uses embedded certificates (compiled into the binary from the certs/ directory)
+ * - CA root cert, device cert, and private key are required for mutual TLS
+ * - SSL hostname verification is enabled
+ *
+ * Data Published:
+ * - QoS 0: "WiFi RSSI : <value>" (signal strength of connected access point)
+ * - QoS 1: "Temperature : <value>, Humidity : <value>" (DHT22 sensor readings)
+ *
+ * @note Based on AWS IoT SDK sample code.
+ *
+ * @copyright
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Additions Copyright 2016 Espressif Systems (Shanghai) PTE LTD
+ * Licensed under the Apache License, Version 2.0
+ */
+
 /*
  * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * Additions Copyright 2016 Espressif Systems (Shanghai) PTE LTD
@@ -50,9 +83,9 @@
 #include "aws_iot_version.h"
 #include "aws_iot_mqtt_client_interface.h"
 
-static const char *TAG = "aws_iot";
+static const char *TAG = "aws_iot";  /**< Log tag for AWS IoT ESP_LOG messages */
 
-// AWS IoT task handle
+/** @brief Task handle for the AWS IoT MQTT client task (NULL if not started) */
 static TaskHandle_t task_aws_iot = NULL;
 
 /**
@@ -73,11 +106,33 @@ char HostAddress[255] = AWS_IOT_MQTT_HOST;
  */
 uint32_t port = AWS_IOT_MQTT_PORT;
 
+/**
+ * @brief Callback function invoked when a message is received on a subscribed MQTT topic.
+ *
+ * Logs the received topic name and message payload to the serial console.
+ * This handler is registered during the MQTT subscription setup.
+ *
+ * @param pClient Pointer to the AWS IoT MQTT client instance.
+ * @param topicName Name of the topic the message was received on.
+ * @param topicNameLen Length of the topic name string.
+ * @param params Message parameters including payload data and length.
+ * @param pData User-defined callback data (unused).
+ */
 void iot_subscribe_callback_handler(AWS_IoT_Client *pClient, char *topicName, uint16_t topicNameLen,
                                     IoT_Publish_Message_Params *params, void *pData) {
     ESP_LOGI(TAG, "Subscribe callback Test: %.*s\t%.*s", topicNameLen, topicName, (int) params->payloadLen, (char *)params->payload);
 }
 
+/**
+ * @brief Callback function invoked when the MQTT connection is unexpectedly lost.
+ *
+ * Handles disconnection events by either relying on the auto-reconnect mechanism
+ * (if enabled) or attempting a manual reconnection. This callback is registered
+ * during MQTT client initialization.
+ *
+ * @param pClient Pointer to the AWS IoT MQTT client that was disconnected.
+ * @param data User-defined data passed during callback registration (unused).
+ */
 void disconnectCallbackHandler(AWS_IoT_Client *pClient, void *data) {
     ESP_LOGW(TAG, "MQTT Disconnect");
     IoT_Error_t rc = FAILURE;
@@ -99,6 +154,21 @@ void disconnectCallbackHandler(AWS_IoT_Client *pClient, void *data) {
     }
 }
 
+/**
+ * @brief Main AWS IoT MQTT client task.
+ *
+ * This FreeRTOS task performs the following sequence:
+ * 1. Initializes the MQTT client with TLS parameters and embedded certificates
+ * 2. Connects to AWS IoT Core endpoint with retry logic
+ * 3. Enables auto-reconnect with exponential backoff
+ * 4. Subscribes to "test_topic/esp32" topic
+ * 5. Enters main loop: yields for incoming messages, publishes sensor data every 3s
+ *    - Publishes WiFi RSSI at QoS 0 (fire-and-forget)
+ *    - Publishes temperature and humidity at QoS 1 (acknowledged delivery)
+ *
+ * @param param Unused task parameter (NULL).
+ * @note Calls abort() on critical failures (init, auto-reconnect setup, subscription).
+ */
 void aws_iot_task(void *param) {
     char cPayload[100];
 
@@ -211,6 +281,13 @@ void aws_iot_task(void *param) {
     abort();
 }
 
+/**
+ * @brief Creates and starts the AWS IoT MQTT client task.
+ *
+ * Launches the aws_iot_task pinned to the core specified in tasks_common.h.
+ * Only creates the task if it hasn't been created already (checked via task handle).
+ * This prevents multiple instances of the AWS IoT task from running.
+ */
 void aws_iot_start(void)
 {
 	if (task_aws_iot == NULL)

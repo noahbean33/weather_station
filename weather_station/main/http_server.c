@@ -1,6 +1,31 @@
-/*
- * http_server.c
+/**
+ * @file http_server.c
+ * @brief HTTP Server Implementation for ESP32 Weather Station
  *
+ * This file implements the HTTP server that provides the web-based interface
+ * for the ESP32 weather station. It handles serving static web assets (HTML, CSS, JS),
+ * providing REST API endpoints for sensor data and WiFi management, and processing
+ * Over-The-Air (OTA) firmware updates.
+ *
+ * @details
+ * Key Components:
+ * - HTTP Server: ESP-IDF httpd component serving on port 80
+ * - Monitor Task: FreeRTOS task processing asynchronous event messages
+ * - URI Handlers: Individual handler functions for each endpoint
+ * - OTA Handler: Receives firmware binary via multipart form upload and flashes it
+ *
+ * Embedded Web Assets:
+ * Static web files are embedded into the firmware binary at compile time using
+ * CMake's EMBED_FILES directive. They are served directly from flash memory
+ * without needing a filesystem.
+ *
+ * Event Flow:
+ * Other modules (wifi_app, sntp) send messages to the HTTP server monitor queue
+ * to update internal state variables. The REST API handlers then return these
+ * states to the web UI when polled.
+ *
+ * @note The server supports up to 20 URI handlers and has extended timeouts (10s)
+ *       to accommodate slow connections during OTA uploads.
  */
 
 #include "esp_http_server.h"
@@ -17,25 +42,25 @@
 #include "tasks_common.h"
 #include "wifi_app.h"
 
-// Tag used for ESP serial console messages
+/** @brief Log tag for HTTP server ESP_LOG messages */
 static const char TAG[] = "http_server";
 
-// Wifi connect status
+/** @brief Current WiFi STA connection status reported to the web UI */
 static int g_wifi_connect_status = NONE;
 
-// Firmware update status
+/** @brief Current OTA firmware update status (pending/successful/failed) */
 static int g_fw_update_status = OTA_UPDATE_PENDING;
 
-// Local Time status
+/** @brief Flag indicating whether SNTP time synchronization has been completed */
 static bool g_is_local_time_set = false;
 
-// HTTP server task handle
+/** @brief Handle to the running httpd server instance (NULL if not started) */
 static httpd_handle_t http_server_handle = NULL;
 
-// HTTP server monitor task handle
+/** @brief Task handle for the HTTP server monitor task */
 static TaskHandle_t task_http_server_monitor = NULL;
 
-// Queue handle used to manipulate the main queue of events
+/** @brief Queue handle for the HTTP server monitor event messages (capacity: 3) */
 static QueueHandle_t http_server_monitor_queue_handle;
 
 /**
@@ -693,6 +718,13 @@ static httpd_handle_t http_server_configure(void)
 	return NULL;
 }
 
+/**
+ * @brief Starts the HTTP server if it is not already running.
+ *
+ * Calls http_server_configure() to set up the server configuration,
+ * register all URI handlers, and start the httpd service. This function
+ * is idempotent - calling it when the server is already running has no effect.
+ */
 void http_server_start(void)
 {
 	if (http_server_handle == NULL)
@@ -701,6 +733,14 @@ void http_server_start(void)
 	}
 }
 
+/**
+ * @brief Stops the HTTP server and cleans up all associated resources.
+ *
+ * Performs the following cleanup:
+ * 1. Stops the httpd server instance (unregisters all URI handlers)
+ * 2. Deletes the HTTP server monitor task
+ * Both handles are set to NULL to allow restart via http_server_start().
+ */
 void http_server_stop(void)
 {
 	if (http_server_handle)
@@ -717,6 +757,16 @@ void http_server_stop(void)
 	}
 }
 
+/**
+ * @brief Sends an event message to the HTTP server monitor task queue.
+ *
+ * Constructs a queue message with the given ID and sends it to the monitor
+ * task for processing. The monitor task updates internal state variables
+ * based on the received message.
+ *
+ * @param msgID The event message identifier.
+ * @return pdTRUE if sent successfully, pdFALSE on queue full (unlikely with portMAX_DELAY).
+ */
 BaseType_t http_server_monitor_send_message(http_server_message_e msgID)
 {
 	http_server_queue_message_t msg;
@@ -724,6 +774,15 @@ BaseType_t http_server_monitor_send_message(http_server_message_e msgID)
 	return xQueueSend(http_server_monitor_queue_handle, &msg, portMAX_DELAY);
 }
 
+/**
+ * @brief Timer callback that triggers device restart after successful OTA update.
+ *
+ * This function is called by the esp_timer framework 8 seconds after a successful
+ * OTA firmware update. The delay gives the web browser time to receive the update
+ * success response before the device reboots into the new firmware.
+ *
+ * @param arg Unused callback argument.
+ */
 void http_server_fw_update_reset_callback(void *arg)
 {
 	ESP_LOGI(TAG, "http_server_fw_update_reset_callback: Timer timed-out, restarting the device");

@@ -1,6 +1,34 @@
-/*
- * wifi_app.c
+/**
+ * @file wifi_app.c
+ * @brief WiFi Application Manager - Implementation
  *
+ * This file implements the WiFi management state machine for the ESP32 weather station.
+ * It handles all WiFi operations including AP configuration, STA connection management,
+ * event handling, and coordination with other modules via message queues.
+ *
+ * @details
+ * Implementation Architecture:
+ * - Main Task (wifi_app_task): Processes messages from the queue in an infinite loop
+ * - Event Handler (wifi_app_event_handler): Handles WiFi/IP events from ESP-IDF
+ * - Event Group: Tracks concurrent state bits for connection source tracking
+ * - Message Queue: Decouples event handlers from main processing logic
+ *
+ * Connection Flow:
+ * 1. wifi_app_start() → creates task → initializes WiFi hardware
+ * 2. Task sends LOAD_SAVED_CREDENTIALS message to itself
+ * 3. If NVS has credentials → attempt STA connection
+ * 4. Always starts HTTP server for web-based configuration
+ * 5. On successful connection → save credentials, notify HTTP server, call callback
+ * 6. On failure → clear event bits, notify HTTP server of failure
+ *
+ * Event Group Bits Usage:
+ * - CONNECTING_USING_SAVED_CREDS_BIT: Currently trying NVS-stored credentials
+ * - CONNECTING_FROM_HTTP_SERVER_BIT: Currently trying credentials from web UI
+ * - USER_REQUESTED_STA_DISCONNECT_BIT: Disconnect was user-initiated
+ * - STA_CONNECTED_GOT_IP_BIT: Currently connected with valid IP
+ *
+ * These bits help the STA_DISCONNECTED handler determine the appropriate response
+ * (clear credentials, notify web UI, or silently handle unexpected disconnect).
  */
 
 #include "freertos/FreeRTOS.h"
@@ -18,32 +46,36 @@
 #include "tasks_common.h"
 #include "wifi_app.h"
 
-// Tag used for ESP serial console messages
+/** @brief Log tag for WiFi application ESP_LOG messages */
 static const char TAG [] = "wifi_app";
 
-// WiFi application callback
+/** @brief Registered callback function invoked on successful WiFi STA connection */
 static wifi_connected_event_callback_t wifi_connected_event_cb;
 
-// Used for returning the WiFi configuration
+/** @brief Shared WiFi configuration structure (used for both STA credential storage and AP config) */
 wifi_config_t *wifi_config = NULL;
 
-// Used to track the number for retries when a connection attempt fails
+/** @brief Counter tracking connection retry attempts (reset on new connection, max: MAX_CONNECTION_RETRIES) */
 static int g_retry_number;
 
 /**
- * Wifi application event group handle and status bits
+ * @brief WiFi application event group and status bit definitions.
+ *
+ * The event group tracks the source and state of WiFi connection attempts,
+ * enabling the disconnection handler to respond appropriately based on context.
  */
 static EventGroupHandle_t wifi_app_event_group;
-const int WIFI_APP_CONNECTING_USING_SAVED_CREDS_BIT			= BIT0;
-const int WIFI_APP_CONNECTING_FROM_HTTP_SERVER_BIT			= BIT1;
-const int WIFI_APP_USER_REQUESTED_STA_DISCONNECT_BIT		= BIT2;
-const int WIFI_APP_STA_CONNECTED_GOT_IP_BIT					= BIT3;
+const int WIFI_APP_CONNECTING_USING_SAVED_CREDS_BIT			= BIT0;  /**< Set when attempting connection with NVS credentials */
+const int WIFI_APP_CONNECTING_FROM_HTTP_SERVER_BIT			= BIT1;  /**< Set when attempting connection from web UI credentials */
+const int WIFI_APP_USER_REQUESTED_STA_DISCONNECT_BIT		= BIT2;  /**< Set when user explicitly requested disconnect */
+const int WIFI_APP_STA_CONNECTED_GOT_IP_BIT					= BIT3;  /**< Set when STA is connected and has a valid IP */
 
-// Queue handle used to manipulate the main queue of events
+/** @brief Queue handle for WiFi application task messages (capacity: 3 messages) */
 static QueueHandle_t wifi_app_queue_handle;
 
-// netif objects for the station and access point
+/** @brief Network interface for WiFi Station mode (client connecting to external AP) */
 esp_netif_t* esp_netif_sta = NULL;
+/** @brief Network interface for WiFi Access Point mode (hosting client connections) */
 esp_netif_t* esp_netif_ap  = NULL;
 
 /**
@@ -359,6 +391,15 @@ static void wifi_app_task(void *pvParameters)
 	}
 }
 
+/**
+ * @brief Sends a message to the WiFi application task queue.
+ *
+ * Constructs a queue message and sends it to the WiFi app task for processing.
+ * Blocks until space is available in the queue.
+ *
+ * @param msgID The message/event ID to send.
+ * @return pdTRUE if sent successfully, pdFALSE otherwise.
+ */
 BaseType_t wifi_app_send_message(wifi_app_message_e msgID)
 {
 	wifi_app_queue_message_t msg;
@@ -366,6 +407,15 @@ BaseType_t wifi_app_send_message(wifi_app_message_e msgID)
 	return xQueueSend(wifi_app_queue_handle, &msg, portMAX_DELAY);
 }
 
+/**
+ * @brief Returns a pointer to the shared WiFi configuration structure.
+ *
+ * Lazily allocates the wifi_config_t structure on first access.
+ * This structure is shared between NVS credential loading and HTTP server
+ * credential setting.
+ *
+ * @return Pointer to the wifi_config_t structure.
+ */
 wifi_config_t* wifi_app_get_wifi_config(void)
 {
 	if (wifi_config == NULL)
@@ -375,16 +425,30 @@ wifi_config_t* wifi_app_get_wifi_config(void)
 	return wifi_config;
 }
 
+/**
+ * @brief Registers a callback to be invoked when WiFi STA connects successfully.
+ * @param cb Function pointer to the connected event callback.
+ */
 void wifi_app_set_callback(wifi_connected_event_callback_t cb)
 {
 	wifi_connected_event_cb = cb;
 }
 
+/**
+ * @brief Invokes the registered WiFi connected callback function.
+ * @note Should only be called after verifying wifi_connected_event_cb is not NULL.
+ */
 void wifi_app_call_callback(void)
 {
 	wifi_connected_event_cb();
 }
 
+/**
+ * @brief Queries the WiFi driver for the current STA connection RSSI.
+ *
+ * @return Signal strength in dBm (negative value, closer to 0 = stronger signal).
+ * @note Will trigger ESP_ERROR_CHECK assertion if not connected.
+ */
 int8_t wifi_app_get_rssi(void)
 {
 	wifi_ap_record_t wifi_data;
@@ -394,27 +458,41 @@ int8_t wifi_app_get_rssi(void)
 	return wifi_data.rssi;
 }
 
+/**
+ * @brief Initializes and starts the entire WiFi application subsystem.
+ *
+ * This is the main entry point for WiFi functionality. It performs:
+ * 1. Sets RGB LED to "WiFi starting" color (purple)
+ * 2. Suppresses verbose WiFi driver logging
+ * 3. Allocates and zeroes the WiFi configuration structure
+ * 4. Creates the message queue (capacity: 3 messages)
+ * 5. Creates the event group for state tracking
+ * 6. Launches the WiFi application task on the designated core
+ *
+ * The task then takes over: initializing event handlers, TCP/IP stack,
+ * AP configuration, starting WiFi, and processing the message queue.
+ */
 void wifi_app_start(void)
 {
 	ESP_LOGI(TAG, "STARTING WIFI APPLICATION");
 
-	// Start WiFi started LED
+	// Start WiFi started LED - visual indication that initialization has begun
 	rgb_led_wifi_app_started();
 
-	// Disable default WiFi logging messages
+	// Disable default WiFi logging messages to reduce serial output noise
 	esp_log_level_set("wifi", ESP_LOG_NONE);
 
-	// Allocate memory for the wifi configuration
+	// Allocate memory for the wifi configuration and zero-initialize
 	wifi_config = (wifi_config_t*)malloc(sizeof(wifi_config_t));
 	memset(wifi_config, 0x00, sizeof(wifi_config_t));
 
-	// Create message queue
+	// Create message queue with capacity for 3 pending messages
 	wifi_app_queue_handle = xQueueCreate(3, sizeof(wifi_app_queue_message_t));
 
-	// Create Wifi application event group
+	// Create event group for tracking connection state bits
 	wifi_app_event_group = xEventGroupCreate();
 
-	// Start the WiFi application task
+	// Start the WiFi application task pinned to the designated core
 	xTaskCreatePinnedToCore(&wifi_app_task, "wifi_app_task", WIFI_APP_TASK_STACK_SIZE, NULL, WIFI_APP_TASK_PRIORITY, NULL, WIFI_APP_TASK_CORE_ID);
 }
 
