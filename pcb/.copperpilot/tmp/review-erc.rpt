@@ -1,0 +1,296 @@
+ERC report (2026-09-05T21:52:23, Encoding UTF8)
+Report includes: Errors, Warnings
+
+***** Sheet /
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(29.21 mm, 29.21 mm): Symbol J1 Pin A4 [VBUSA1, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(29.21 mm, 87.63 mm): Symbol #PWR04 Pin 1 [Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(218.44 mm, 91.44 mm): Symbol U1 Pin 18 [IN, Power input, Line]
+[no_connect_connected]: A pin with a "no connection" flag is connected
+    ; warning
+    @(29.21 mm, 36.83 mm): Symbol J1 Pin A7 [DN1, Bidirectional, Line]
+    @(69.85 mm, 36.83 mm): No Connect
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-Capacitor'
+    ; warning
+    @(31.75 mm, 93.98 mm): Symbol C2 [C]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(39.37 mm, 125.73 mm): Symbol J2 [B2B-PH-SM4-TB]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'B2B-PH-SM4-TB'
+    ; warning
+    @(39.37 mm, 125.73 mm): Symbol J2 [B2B-PH-SM4-TB]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(43.18 mm, 87.63 mm): Symbol C3 [T491A106K010AT7280]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'T491A106K010AT7280'
+    ; warning
+    @(43.18 mm, 87.63 mm): Symbol C3 [T491A106K010AT7280]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(49.53 mm, 36.83 mm): Symbol J1 [SS-52400-002]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SS-52400-002'
+    ; warning
+    @(49.53 mm, 36.83 mm): Symbol J1 [SS-52400-002]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(62.23 mm, 90.17 mm): Symbol U2 [LM1117MPX-3.3_NOPB]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'LM1117MPX-3.3_NOPB'
+    ; warning
+    @(62.23 mm, 90.17 mm): Symbol U2 [LM1117MPX-3.3_NOPB]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(83.82 mm, 87.63 mm): Symbol #PWR05 [3.3V]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-Capacitor'
+    ; warning
+    @(87.63 mm, 30.48 mm): Symbol C1 [C]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(88.90 mm, 87.63 mm): Symbol C4 [T491A106K010AT7280]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'T491A106K010AT7280'
+    ; warning
+    @(88.90 mm, 87.63 mm): Symbol C4 [T491A106K010AT7280]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(92.71 mm, 26.67 mm): Symbol F1 [0ZCH0110AF2E]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SamacSys_Parts'
+    ; warning
+    @(92.71 mm, 26.67 mm): Symbol F1 [0ZCH0110AF2E]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-Capacitor'
+    ; warning
+    @(96.52 mm, 93.98 mm): Symbol C5 [C]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(113.03 mm, 87.63 mm): Symbol #PWR016 [3.3V]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(129.54 mm, 92.71 mm): Symbol D4 [LTST-C170KRKT]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'LTST-C170KRKT'
+    ; warning
+    @(129.54 mm, 92.71 mm): Symbol D4 [LTST-C170KRKT]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(133.35 mm, 143.827 mm): Horizontal Wire, length 3.81 mm
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(170.18 mm, 91.44 mm): Symbol D1 [LTST-C170KRKT]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'LTST-C170KRKT'
+    ; warning
+    @(170.18 mm, 91.44 mm): Symbol D1 [LTST-C170KRKT]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(180.34 mm, 91.44 mm): Symbol D2 [LTST-C170GKT]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'LTST-C170GKT'
+    ; warning
+    @(180.34 mm, 91.44 mm): Symbol D2 [LTST-C170GKT]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(190.50 mm, 91.44 mm): Symbol D3 [LTST-C170TBKT]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'LTST-C170TBKT'
+    ; warning
+    @(190.50 mm, 91.44 mm): Symbol D3 [LTST-C170TBKT]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(199.39 mm, 105.41 mm): Symbol FB1 [FBMJ2125HM330-T]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'FBMJ2125HM330-T'
+    ; warning
+    @(199.39 mm, 105.41 mm): Symbol FB1 [FBMJ2125HM330-T]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-Capacitor'
+    ; warning
+    @(218.44 mm, 109.22 mm): Symbol C6 [C]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(24.13 mm, 160.02 mm): Symbol #PWR032 [3.3V]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-Capacitor'
+    ; warning
+    @(41.91 mm, 83.82 mm): Symbol C11 [C]
+[lib_symbol_mismatch]: Symbol 'USBLC6-2SC6' doesn't match copy in library 'Power_Protection'
+    ; warning
+    @(50.80 mm, 106.68 mm): Symbol U5 [USBLC6-2SC6]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-Capacitor'
+    ; warning
+    @(64.77 mm, 49.53 mm): Symbol C10 [C]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(71.12 mm, 38.10 mm): Symbol C9 [T491A106K010AT7280]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'T491A106K010AT7280'
+    ; warning
+    @(71.12 mm, 38.10 mm): Symbol C9 [T491A106K010AT7280]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(73.66 mm, 167.64 mm): Symbol U6 [W25Q32JVSSIQ]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'W25Q32JVSSIQ'
+    ; warning
+    @(73.66 mm, 167.64 mm): Symbol U6 [W25Q32JVSSIQ]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(77.47 mm, 31.75 mm): Symbol #PWR019 [3.3V]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(97.79 mm, 154.94 mm): Symbol #PWR031 [3.3V]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-Capacitor'
+    ; warning
+    @(97.79 mm, 167.64 mm): Symbol C14 [C]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(118.11 mm, 101.60 mm): Symbol D5 [LTST-C170GKT]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'LTST-C170GKT'
+    ; warning
+    @(118.11 mm, 101.60 mm): Symbol D5 [LTST-C170GKT]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(118.11 mm, 110.49 mm): Symbol D6 [LTST-C170KRKT]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'LTST-C170KRKT'
+    ; warning
+    @(118.11 mm, 110.49 mm): Symbol D6 [LTST-C170KRKT]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(137.16 mm, 100.33 mm): Symbol #PWR026 [3.3V]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(215.90 mm, 44.45 mm): Symbol U3 [ESP32-C3-WROOM-02-H4]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'ESP32-C3-WROOM-02-H4'
+    ; warning
+    @(215.90 mm, 44.45 mm): Symbol U3 [ESP32-C3-WROOM-02-H4]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(215.90 mm, 97.79 mm): Symbol J3 [GSD090012SEU]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'GSD090012SEU'
+    ; warning
+    @(215.90 mm, 97.79 mm): Symbol J3 [GSD090012SEU]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(238.76 mm, 24.13 mm): Symbol #PWR018 [3.3V]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(242.57 mm, 101.60 mm): Symbol #PWR028 [3.3V]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-Capacitor'
+    ; warning
+    @(247.65 mm, 34.29 mm): Symbol C8 [C]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(248.92 mm, 82.55 mm): Symbol #PWR025 [3.3V]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(256.54 mm, 27.94 mm): Symbol C7 [T491A106K010AT7280]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'T491A106K010AT7280'
+    ; warning
+    @(256.54 mm, 27.94 mm): Symbol C7 [T491A106K010AT7280]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(264.16 mm, 92.71 mm): Symbol C12 [T491A106K010AT7280]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'T491A106K010AT7280'
+    ; warning
+    @(264.16 mm, 92.71 mm): Symbol C12 [T491A106K010AT7280]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-Capacitor'
+    ; warning
+    @(274.32 mm, 99.06 mm): Symbol C13 [C]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(44.45 mm, 39.37 mm): Symbol #PWR035 [3.3V]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(68.58 mm, 54.61 mm): Symbol U7 [BME280]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'BME280'
+    ; warning
+    @(68.58 mm, 54.61 mm): Symbol U7 [BME280]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(90.17 mm, 39.37 mm): Symbol #PWR036 [3.3V]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-Capacitor'
+    ; warning
+    @(90.17 mm, 55.88 mm): Symbol C15 [C]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(125.73 mm, 121.92 mm): Symbol MK1 [CMC-5042PF-AC]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'CMC-5042PF-AC'
+    ; warning
+    @(125.73 mm, 121.92 mm): Symbol MK1 [CMC-5042PF-AC]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(138.43 mm, 96.52 mm): Symbol #PWR040 [3.3V]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(152.40 mm, 97.79 mm): Symbol #PWR041 [3.3V]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(162.56 mm, 49.53 mm): Symbol Q1 [TEMT6000X01]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'TEMT6000X01'
+    ; warning
+    @(162.56 mm, 49.53 mm): Symbol Q1 [TEMT6000X01]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(173.99 mm, 48.26 mm): Symbol #PWR066 [3.3V]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(191.77 mm, 116.84 mm): Symbol U8 [MAX4466EXK]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'MAX4466EXK'
+    ; warning
+    @(191.77 mm, 116.84 mm): Symbol U8 [MAX4466EXK]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(198.12 mm, 138.43 mm): Symbol R17 [35WR100KLFTR]
+[lib_symbol_issues]: The current configuration does not include the symbol library '35WR100KLFTR'
+    ; warning
+    @(198.12 mm, 138.43 mm): Symbol R17 [35WR100KLFTR]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(224.79 mm, 107.95 mm): Symbol #PWR044 [3.3V]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(66.04 mm, 53.34 mm): Symbol #PWR050 [3.3V]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(66.04 mm, 109.22 mm): Symbol #PWR057 [3.3V]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Footprints'
+    ; warning
+    @(72.39 mm, 62.23 mm): Symbol J4 [B4B-XH-AM__LF__SN_]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'B4B-XH-AM__LF__SN_'
+    ; warning
+    @(72.39 mm, 62.23 mm): Symbol J4 [B4B-XH-AM__LF__SN_]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-Capacitor'
+    ; warning
+    @(151.13 mm, 77.47 mm): Symbol C21 [C]
+[footprint_link_issues]: The current configuration does not include the footprint library 'USLPT2819DT2TR'
+    ; warning
+    @(162.56 mm, 62.23 mm): Symbol SW1 [USLPT2819DT2TR]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'USLPT2819DT2TR'
+    ; warning
+    @(162.56 mm, 62.23 mm): Symbol SW1 [USLPT2819DT2TR]
+[lib_symbol_mismatch]: Symbol 'BC817' doesn't match copy in library 'Transistor_BJT'
+    ; warning
+    @(179.07 mm, 111.76 mm): Symbol Q2 [BC817]
+[lib_symbol_mismatch]: Symbol 'BC817' doesn't match copy in library 'Transistor_BJT'
+    ; warning
+    @(179.07 mm, 128.27 mm): Symbol Q3 [BC817]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-PowerSymbol'
+    ; warning
+    @(193.04 mm, 53.34 mm): Symbol #PWR051 [3.3V]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'SparkFun-Capacitor'
+    ; warning
+    @(203.20 mm, 82.55 mm): Symbol C22 [C]
+[footprint_link_issues]: The current configuration does not include the footprint library 'USLPT2819DT2TR'
+    ; warning
+    @(214.63 mm, 67.31 mm): Symbol SW2 [USLPT2819DT2TR]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'USLPT2819DT2TR'
+    ; warning
+    @(214.63 mm, 67.31 mm): Symbol SW2 [USLPT2819DT2TR]
+
+***** Sheet /ESP32-C3-02/
+
+***** Sheet /ESP32-C3-02/Sensors/
+
+***** Sheet /ESP32-C3-02/User interface/
+
+ ** ERC messages: 92  Errors 3  Warnings 89
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - Conflict problem between pins
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters

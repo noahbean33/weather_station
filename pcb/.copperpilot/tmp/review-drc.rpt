@@ -1,0 +1,938 @@
+** Drc report for ESP32 sensor board.kicad_pcb **
+** Created on 2026-09-05T21:52:21 **
+** Report includes: Errors, Warnings **
+
+** Found 248 DRC violations **
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1755 mm)
+    Local override; error
+    @(154.7475 mm, 77.6675 mm): Pad 7 [GND] of U7 on F.Cu
+    @(154.0970 mm, 77.6675 mm): Track [3.3V] on F.Cu, length 1.0325 mm
+[shorting_items]: Items shorting two nets (nets GND and /ESP32-C3-02/EN)
+    Local override; error
+    @(157.3000 mm, 122.2500 mm): Track [GND] on F.Cu, length 1.6500 mm
+    @(157.3000 mm, 122.2500 mm): Pad 3 [/ESP32-C3-02/EN] of SW2 on F.Cu
+[shorting_items]: Items shorting two nets (nets GND and /ESP32-C3-02/BOOT)
+    Local override; error
+    @(167.4000 mm, 120.7000 mm): Track [GND] on F.Cu, length 1.5500 mm
+    @(167.4000 mm, 122.2500 mm): Pad 3 [/ESP32-C3-02/BOOT] of SW1 on F.Cu
+[shorting_items]: Items shorting two nets (nets GND and /ESP32-C3-02/BOOT)
+    Local override; error
+    @(167.4000 mm, 122.2500 mm): Track [GND] on F.Cu, length 2.9760 mm
+    @(167.4000 mm, 122.2500 mm): Pad 3 [/ESP32-C3-02/BOOT] of SW1 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1745 mm)
+    Local override; error
+    @(156.0470 mm, 77.6675 mm): Track [GND] on F.Cu, length 0.9200 mm
+    @(155.3975 mm, 77.6675 mm): Pad 6 [3.3V] of U7 on F.Cu
+[shorting_items]: Items shorting two nets (nets /ESP32-C3-02/EN and GND)
+    Local override; error
+    @(150.1000 mm, 122.2500 mm): Track [/ESP32-C3-02/EN] on F.Cu, length 3.0000 mm
+    @(150.1000 mm, 119.2500 mm): Pad 2 [GND] of SW2 on F.Cu
+[shorting_items]: Items shorting two nets (nets /ESP32-C3-02/EN and GND)
+    Local override; error
+    @(150.1000 mm, 117.8000 mm): Track [/ESP32-C3-02/EN] on F.Cu, length 1.4500 mm
+    @(150.1000 mm, 119.2500 mm): Pad 2 [GND] of SW2 on F.Cu
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.0000 mm)
+    Local override; error
+    @(184.2000 mm, 83.5000 mm): Via [/ESP32-C3-02/EN] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.0000 mm)
+    Local override; error
+    @(184.2000 mm, 83.5000 mm): Via [/ESP32-C3-02/EN] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.0000 mm)
+    Local override; error
+    @(184.9250 mm, 88.7750 mm): Via [/ESP32-C3-02/CS] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.0000 mm)
+    Local override; error
+    @(194.7000 mm, 104.2500 mm): Via [/ESP32-C3-02/TX_RX] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.0000 mm)
+    Local override; error
+    @(184.9250 mm, 88.7750 mm): Via [/ESP32-C3-02/CS] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.0000 mm)
+    Local override; error
+    @(184.9500 mm, 87.8000 mm): Via [/ESP32-C3-02/GPIO18] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.0000 mm)
+    Local override; error
+    @(194.7000 mm, 104.2500 mm): Via [/ESP32-C3-02/TX_RX] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.0000 mm)
+    Local override; error
+    @(184.9500 mm, 87.8000 mm): Via [/ESP32-C3-02/GPIO18] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.0000 mm)
+    Local override; error
+    @(185.0000 mm, 80.6500 mm): Via [/ESP32-C3-02/SCL] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.0000 mm)
+    Local override; error
+    @(185.0000 mm, 80.6500 mm): Via [/ESP32-C3-02/SCL] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.0000 mm)
+    Local override; error
+    @(194.2500 mm, 80.1000 mm): Via [/ESP32-C3-02/MIC_OUT] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.0000 mm)
+    Local override; error
+    @(194.2500 mm, 80.1000 mm): Via [/ESP32-C3-02/MIC_OUT] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.0000 mm)
+    Local override; error
+    @(188.3000 mm, 81.4000 mm): Via [/ESP32-C3-02/PHOTO_C] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[shorting_items]: Items shorting two nets (nets /ESP32-C3-02/BOOT and GND)
+    Local override; error
+    @(160.2000 mm, 119.2500 mm): Track [/ESP32-C3-02/BOOT] on F.Cu, length 2.6500 mm
+    @(160.2000 mm, 119.2500 mm): Pad 2 [GND] of SW1 on F.Cu
+[shorting_items]: Items shorting two nets (nets /ESP32-C3-02/BOOT and GND)
+    Local override; error
+    @(160.2000 mm, 122.2500 mm): Track [/ESP32-C3-02/BOOT] on F.Cu, length 3.0000 mm
+    @(160.2000 mm, 119.2500 mm): Pad 2 [GND] of SW1 on F.Cu
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.0000 mm)
+    Local override; error
+    @(171.4000 mm, 105.7000 mm): Via [/ESP32-C3-02/BOOT] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.0000 mm)
+    Local override; error
+    @(171.4000 mm, 105.7000 mm): Via [/ESP32-C3-02/BOOT] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.0000 mm)
+    Local override; error
+    @(188.3000 mm, 81.4000 mm): Via [/ESP32-C3-02/PHOTO_C] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.1806 mm)
+    Local override; error
+    @(195.1500 mm, 104.9000 mm): Via [/ESP32-C3-02/RX_TX] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[clearance]: Clearance violation (zone clearance 0.3500 mm; actual 0.1806 mm)
+    Local override; error
+    @(195.1500 mm, 104.9000 mm): Via [/ESP32-C3-02/RX_TX] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(145.5908 mm, 115.0925 mm): PTH pad B2 [unconnected-(J1-SSTXP2-PadB2)] of J1
+    @(145.9908 mm, 114.3825 mm): PTH pad B1 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(145.5908 mm, 115.0925 mm): PTH pad B2 [unconnected-(J1-SSTXP2-PadB2)] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(145.5908 mm, 115.0925 mm): PTH pad B2 [unconnected-(J1-SSTXP2-PadB2)] of J1
+    @(145.9908 mm, 114.3825 mm): PTH pad B1 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(145.5908 mm, 115.0925 mm): PTH pad B2 [unconnected-(J1-SSTXP2-PadB2)] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(145.5908 mm, 115.0925 mm): PTH pad B2 [unconnected-(J1-SSTXP2-PadB2)] of J1
+    @(145.9908 mm, 114.3825 mm): PTH pad B1 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(145.5908 mm, 115.0925 mm): PTH pad B2 [unconnected-(J1-SSTXP2-PadB2)] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(145.5908 mm, 115.0925 mm): PTH pad B2 [unconnected-(J1-SSTXP2-PadB2)] of J1
+    @(145.9908 mm, 114.3825 mm): PTH pad B1 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(145.5908 mm, 115.0925 mm): PTH pad B2 [unconnected-(J1-SSTXP2-PadB2)] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(144.7908 mm, 115.0925 mm): PTH pad B3 [unconnected-(J1-SSTXN2-PadB3)] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(144.7908 mm, 115.0925 mm): PTH pad B3 [unconnected-(J1-SSTXN2-PadB3)] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(144.7908 mm, 115.0925 mm): PTH pad B3 [unconnected-(J1-SSTXN2-PadB3)] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(144.7908 mm, 115.0925 mm): PTH pad B3 [unconnected-(J1-SSTXN2-PadB3)] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(144.3908 mm, 114.3825 mm): PTH pad B4 [/VBUS] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(144.3908 mm, 114.3825 mm): PTH pad B4 [/VBUS] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(144.3908 mm, 114.3825 mm): PTH pad B4 [/VBUS] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(144.3908 mm, 114.3825 mm): PTH pad B4 [/VBUS] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(141.9908 mm, 114.3825 mm): PTH pad B9 [/VBUS] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(141.9908 mm, 114.3825 mm): PTH pad B9 [/VBUS] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(141.9908 mm, 114.3825 mm): PTH pad B9 [/VBUS] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(141.9908 mm, 114.3825 mm): PTH pad B9 [/VBUS] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(141.5908 mm, 115.0925 mm): PTH pad B10 [unconnected-(J1-SSRXN1-PadB10)] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(141.5908 mm, 115.0925 mm): PTH pad B10 [unconnected-(J1-SSRXN1-PadB10)] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(141.5908 mm, 115.0925 mm): PTH pad B10 [unconnected-(J1-SSRXN1-PadB10)] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(141.5908 mm, 115.0925 mm): PTH pad B10 [unconnected-(J1-SSRXN1-PadB10)] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(140.7908 mm, 115.0925 mm): PTH pad B11 [unconnected-(J1-SSRXP1-PadB11)] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(140.7908 mm, 115.0925 mm): PTH pad B11 [unconnected-(J1-SSRXP1-PadB11)] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(140.7908 mm, 115.0925 mm): PTH pad B11 [unconnected-(J1-SSRXP1-PadB11)] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(140.7908 mm, 115.0925 mm): PTH pad B11 [unconnected-(J1-SSRXP1-PadB11)] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(140.3908 mm, 114.3825 mm): PTH pad B12 [GND] of J1
+    @(140.7908 mm, 115.0925 mm): PTH pad B11 [unconnected-(J1-SSRXP1-PadB11)] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(140.3908 mm, 114.3825 mm): PTH pad B12 [GND] of J1
+    @(140.7908 mm, 115.0925 mm): PTH pad B11 [unconnected-(J1-SSRXP1-PadB11)] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(140.3908 mm, 114.3825 mm): PTH pad B12 [GND] of J1
+    @(140.7908 mm, 115.0925 mm): PTH pad B11 [unconnected-(J1-SSRXP1-PadB11)] of J1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1649 mm)
+    Local override; error
+    @(140.3908 mm, 114.3825 mm): PTH pad B12 [GND] of J1
+    @(140.7908 mm, 115.0925 mm): PTH pad B11 [unconnected-(J1-SSRXP1-PadB11)] of J1
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; error
+    @(112.4992 mm, 73.2000 mm): Arc on Edge.Cuts
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; error
+    @(111.5000 mm, 73.2000 mm): Segment on Edge.Cuts
+    @(136.6000 mm, 105.6000 mm): Zone [/+5V_USB] on In2.Cu, priority 4
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; error
+    @(112.4992 mm, 73.2000 mm): Arc on Edge.Cuts
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[invalid_outline]: Board has malformed outline (segment has null or very small length: 2 nm)
+    Local override; error
+    @(111.5000 mm, 73.2000 mm): Segment on Edge.Cuts
+    @(111.5000 mm, 124.0000 mm): Segment on Edge.Cuts
+[via_diameter]: Via diameter (board setup constraints min diameter 0.5000 mm; actual 0.3000 mm)
+    Rule: netclass 'Default'; error
+    @(132.8400 mm, 121.5400 mm): Via [Net-(FB1-Pad2)] on F.Cu - B.Cu
+[via_diameter]: Via diameter (board setup constraints min diameter 0.5000 mm; actual 0.3000 mm)
+    Rule: netclass 'Default'; error
+    @(133.9182 mm, 119.1182 mm): Via [Net-(FB1-Pad2)] on F.Cu - B.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(157.3000 mm, 122.2500 mm): Track [GND] on F.Cu, length 1.6500 mm
+    @(157.3000 mm, 122.2500 mm): Pad 3 [/ESP32-C3-02/EN] of SW2 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(154.0975 mm, 75.7275 mm): Pad 1 [GND] of U7 on F.Cu
+    @(154.7475 mm, 75.7275 mm): Pad 2 [3.3V] of U7 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(154.7475 mm, 75.7275 mm): Pad 2 [3.3V] of U7 on F.Cu
+    @(155.3975 mm, 75.7275 mm): Pad 3 [/ESP32-C3-02/SDA] of U7 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(155.3975 mm, 75.7275 mm): Pad 3 [/ESP32-C3-02/SDA] of U7 on F.Cu
+    @(156.0475 mm, 75.7275 mm): Pad 4 [/ESP32-C3-02/SCL] of U7 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(156.0475 mm, 77.6675 mm): Pad 5 [GND] of U7 on F.Cu
+    @(155.3975 mm, 77.6675 mm): Pad 6 [3.3V] of U7 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(167.4000 mm, 120.7000 mm): Track [GND] on F.Cu, length 1.5500 mm
+    @(167.4000 mm, 122.2500 mm): Pad 3 [/ESP32-C3-02/BOOT] of SW1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(145.9908 mm, 114.3825 mm): PTH pad B1 [GND] of J1
+    @(145.5908 mm, 115.0925 mm): PTH pad B2 [unconnected-(J1-SSTXP2-PadB2)] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(155.3975 mm, 77.6675 mm): Pad 6 [3.3V] of U7 on F.Cu
+    @(154.7475 mm, 77.6675 mm): Pad 7 [GND] of U7 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(160.2000 mm, 119.2500 mm): Track [/ESP32-C3-02/BOOT] on F.Cu, length 2.6500 mm
+    @(160.2000 mm, 119.2500 mm): Pad 2 [GND] of SW1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(160.2000 mm, 122.2500 mm): Track [/ESP32-C3-02/BOOT] on F.Cu, length 3.0000 mm
+    @(160.2000 mm, 119.2500 mm): Pad 2 [GND] of SW1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(150.1000 mm, 122.2500 mm): Track [/ESP32-C3-02/EN] on F.Cu, length 3.0000 mm
+    @(150.1000 mm, 119.2500 mm): Pad 2 [GND] of SW2 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(154.7475 mm, 77.6675 mm): Pad 7 [GND] of U7 on F.Cu
+    @(154.0975 mm, 77.6675 mm): Pad 8 [3.3V] of U7 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(150.1000 mm, 117.8000 mm): Track [/ESP32-C3-02/EN] on F.Cu, length 1.4500 mm
+    @(150.1000 mm, 119.2500 mm): Pad 2 [GND] of SW2 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(145.9908 mm, 114.3825 mm): PTH pad B1 [GND] of J1
+    @(145.5908 mm, 115.0925 mm): PTH pad B2 [unconnected-(J1-SSTXP2-PadB2)] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(145.5908 mm, 115.0925 mm): PTH pad B2 [unconnected-(J1-SSTXP2-PadB2)] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(145.5908 mm, 115.0925 mm): PTH pad B2 [unconnected-(J1-SSTXP2-PadB2)] of J1
+    @(144.7908 mm, 115.0925 mm): PTH pad B3 [unconnected-(J1-SSTXN2-PadB3)] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(145.5908 mm, 115.0925 mm): PTH pad B2 [unconnected-(J1-SSTXP2-PadB2)] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(145.5908 mm, 115.0925 mm): PTH pad B2 [unconnected-(J1-SSTXP2-PadB2)] of J1
+    @(144.7908 mm, 115.0925 mm): PTH pad B3 [unconnected-(J1-SSTXN2-PadB3)] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(144.7908 mm, 115.0925 mm): PTH pad B3 [unconnected-(J1-SSTXN2-PadB3)] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(144.7908 mm, 115.0925 mm): PTH pad B3 [unconnected-(J1-SSTXN2-PadB3)] of J1
+    @(144.3908 mm, 114.3825 mm): PTH pad B4 [/VBUS] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(144.7908 mm, 115.0925 mm): PTH pad B3 [unconnected-(J1-SSTXN2-PadB3)] of J1
+    @(143.9908 mm, 115.0925 mm): PTH pad B5 [Net-(J1-CC2)] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(140.4408 mm, 113.1325 mm): Pad A1 [GND] of J1 on F.Cu
+    @(140.9408 mm, 113.1325 mm): Pad A2 [unconnected-(J1-SSTXP1-PadA2)] of J1 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(144.7908 mm, 115.0925 mm): PTH pad B3 [unconnected-(J1-SSTXN2-PadB3)] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(144.7908 mm, 115.0925 mm): PTH pad B3 [unconnected-(J1-SSTXN2-PadB3)] of J1
+    @(144.3908 mm, 114.3825 mm): PTH pad B4 [/VBUS] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(167.4000 mm, 122.2500 mm): Track [GND] on F.Cu, length 2.9760 mm
+    @(167.4000 mm, 122.2500 mm): Pad 3 [/ESP32-C3-02/BOOT] of SW1 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(144.7908 mm, 115.0925 mm): PTH pad B3 [unconnected-(J1-SSTXN2-PadB3)] of J1
+    @(143.9908 mm, 115.0925 mm): PTH pad B5 [Net-(J1-CC2)] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(140.9408 mm, 113.1325 mm): Pad A2 [unconnected-(J1-SSTXP1-PadA2)] of J1 on F.Cu
+    @(141.4408 mm, 113.1325 mm): Pad A3 [unconnected-(J1-SSTXN1-PadA3)] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(144.3908 mm, 114.3825 mm): PTH pad B4 [/VBUS] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(144.3908 mm, 114.3825 mm): PTH pad B4 [/VBUS] of J1
+    @(143.9908 mm, 115.0925 mm): PTH pad B5 [Net-(J1-CC2)] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(141.4408 mm, 113.1325 mm): Pad A3 [unconnected-(J1-SSTXN1-PadA3)] of J1 on F.Cu
+    @(141.9408 mm, 113.1325 mm): Pad A4 [/VBUS] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(144.3908 mm, 114.3825 mm): PTH pad B4 [/VBUS] of J1
+    @(143.5908 mm, 114.3825 mm): PTH pad B6 [/USB_DP] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(144.3908 mm, 114.3825 mm): PTH pad B4 [/VBUS] of J1
+    @(145.1908 mm, 114.3825 mm): PTH pad G1 [GND] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(141.9408 mm, 113.1325 mm): Pad A4 [/VBUS] of J1 on F.Cu
+    @(142.4408 mm, 113.1325 mm): Pad A5 [Net-(J1-CC1)] of J1 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(144.3908 mm, 114.3825 mm): PTH pad B4 [/VBUS] of J1
+    @(143.9908 mm, 115.0925 mm): PTH pad B5 [Net-(J1-CC2)] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(144.3908 mm, 114.3825 mm): PTH pad B4 [/VBUS] of J1
+    @(143.5908 mm, 114.3825 mm): PTH pad B6 [/USB_DP] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(142.4408 mm, 113.1325 mm): Pad A5 [Net-(J1-CC1)] of J1 on F.Cu
+    @(142.9408 mm, 113.1325 mm): Pad A6 [/USB_DP] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(143.9908 mm, 115.0925 mm): PTH pad B5 [Net-(J1-CC2)] of J1
+    @(143.5908 mm, 114.3825 mm): PTH pad B6 [/USB_DP] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(143.9908 mm, 115.0925 mm): PTH pad B5 [Net-(J1-CC2)] of J1
+    @(143.5908 mm, 114.3825 mm): PTH pad B6 [/USB_DP] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(143.5908 mm, 114.3825 mm): PTH pad B6 [/USB_DP] of J1
+    @(142.7908 mm, 114.3825 mm): PTH pad B7 [/USB_DN] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(142.9408 mm, 113.1325 mm): Pad A6 [/USB_DP] of J1 on F.Cu
+    @(143.4408 mm, 113.1325 mm): Pad A7 [/USB_DN] of J1 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(143.5908 mm, 114.3825 mm): PTH pad B6 [/USB_DP] of J1
+    @(142.7908 mm, 114.3825 mm): PTH pad B7 [/USB_DN] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(143.4408 mm, 113.1325 mm): Pad A7 [/USB_DN] of J1 on F.Cu
+    @(143.9408 mm, 113.1325 mm): Pad A8 [unconnected-(J1-SBU1-PadA8)] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(142.7908 mm, 114.3825 mm): PTH pad B7 [/USB_DN] of J1
+    @(142.3908 mm, 115.0925 mm): PTH pad B8 [unconnected-(J1-SBU2-PadB8)] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(143.9408 mm, 113.1325 mm): Pad A8 [unconnected-(J1-SBU1-PadA8)] of J1 on F.Cu
+    @(144.4408 mm, 113.1325 mm): Pad A9 [/VBUS] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(142.7908 mm, 114.3825 mm): PTH pad B7 [/USB_DN] of J1
+    @(141.9908 mm, 114.3825 mm): PTH pad B9 [/VBUS] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(142.7908 mm, 114.3825 mm): PTH pad B7 [/USB_DN] of J1
+    @(142.3908 mm, 115.0925 mm): PTH pad B8 [unconnected-(J1-SBU2-PadB8)] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(144.4408 mm, 113.1325 mm): Pad A9 [/VBUS] of J1 on F.Cu
+    @(144.9408 mm, 113.1325 mm): Pad A10 [unconnected-(J1-SSRXN2-PadA10)] of J1 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(142.7908 mm, 114.3825 mm): PTH pad B7 [/USB_DN] of J1
+    @(141.9908 mm, 114.3825 mm): PTH pad B9 [/VBUS] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(144.9408 mm, 113.1325 mm): Pad A10 [unconnected-(J1-SSRXN2-PadA10)] of J1 on F.Cu
+    @(145.4408 mm, 113.1325 mm): Pad A11 [unconnected-(J1-SSRXP2-PadA11)] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(142.3908 mm, 115.0925 mm): PTH pad B8 [unconnected-(J1-SBU2-PadB8)] of J1
+    @(141.9908 mm, 114.3825 mm): PTH pad B9 [/VBUS] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(145.4408 mm, 113.1325 mm): Pad A11 [unconnected-(J1-SSRXP2-PadA11)] of J1 on F.Cu
+    @(145.9408 mm, 113.1325 mm): Pad A12 [GND] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(142.3908 mm, 115.0925 mm): PTH pad B8 [unconnected-(J1-SBU2-PadB8)] of J1
+    @(141.5908 mm, 115.0925 mm): PTH pad B10 [unconnected-(J1-SSRXN1-PadB10)] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(142.3908 mm, 115.0925 mm): PTH pad B8 [unconnected-(J1-SBU2-PadB8)] of J1
+    @(141.9908 mm, 114.3825 mm): PTH pad B9 [/VBUS] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(142.3908 mm, 115.0925 mm): PTH pad B8 [unconnected-(J1-SBU2-PadB8)] of J1
+    @(141.5908 mm, 115.0925 mm): PTH pad B10 [unconnected-(J1-SSRXN1-PadB10)] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(141.9908 mm, 114.3825 mm): PTH pad B9 [/VBUS] of J1
+    @(141.5908 mm, 115.0925 mm): PTH pad B10 [unconnected-(J1-SSRXN1-PadB10)] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(141.9908 mm, 114.3825 mm): PTH pad B9 [/VBUS] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(141.9908 mm, 114.3825 mm): PTH pad B9 [/VBUS] of J1
+    @(141.5908 mm, 115.0925 mm): PTH pad B10 [unconnected-(J1-SSRXN1-PadB10)] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(141.9908 mm, 114.3825 mm): PTH pad B9 [/VBUS] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(141.5908 mm, 115.0925 mm): PTH pad B10 [unconnected-(J1-SSRXN1-PadB10)] of J1
+    @(140.7908 mm, 115.0925 mm): PTH pad B11 [unconnected-(J1-SSRXP1-PadB11)] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(141.5908 mm, 115.0925 mm): PTH pad B10 [unconnected-(J1-SSRXN1-PadB10)] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(141.5908 mm, 115.0925 mm): PTH pad B10 [unconnected-(J1-SSRXN1-PadB10)] of J1
+    @(140.7908 mm, 115.0925 mm): PTH pad B11 [unconnected-(J1-SSRXP1-PadB11)] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(141.5908 mm, 115.0925 mm): PTH pad B10 [unconnected-(J1-SSRXN1-PadB10)] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(140.7908 mm, 115.0925 mm): PTH pad B11 [unconnected-(J1-SSRXP1-PadB11)] of J1
+    @(140.3908 mm, 114.3825 mm): PTH pad B12 [GND] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(140.7908 mm, 115.0925 mm): PTH pad B11 [unconnected-(J1-SSRXP1-PadB11)] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(140.7908 mm, 115.0925 mm): PTH pad B11 [unconnected-(J1-SSRXP1-PadB11)] of J1
+    @(140.3908 mm, 114.3825 mm): PTH pad B12 [GND] of J1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(140.7908 mm, 115.0925 mm): PTH pad B11 [unconnected-(J1-SSRXP1-PadB11)] of J1
+    @(141.1908 mm, 114.3825 mm): PTH pad G2 [GND] of J1
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(187.6178 mm, 82.6550 mm): Track [/ESP32-C3-02/MIC_OUT] on B.Cu, length 1.414e-06 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(197.7000 mm, 95.4000 mm): Track [/ESP32-C3-02/CS_SD] on F.Cu, length 0.6718 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(141.4050 mm, 95.8678 mm): Track [/ESP32-C3-02/RX_TX] on F.Cu, length 1.414e-06 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; warning
+    @(184.2000 mm, 83.5000 mm): Via [/ESP32-C3-02/EN] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; warning
+    @(184.2000 mm, 83.5000 mm): Via [/ESP32-C3-02/EN] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; warning
+    @(184.9250 mm, 88.7750 mm): Via [/ESP32-C3-02/CS] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; warning
+    @(194.7000 mm, 104.2500 mm): Via [/ESP32-C3-02/TX_RX] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; warning
+    @(184.9250 mm, 88.7750 mm): Via [/ESP32-C3-02/CS] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; warning
+    @(184.9500 mm, 87.8000 mm): Via [/ESP32-C3-02/GPIO18] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; warning
+    @(194.7000 mm, 104.2500 mm): Via [/ESP32-C3-02/TX_RX] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; warning
+    @(184.9500 mm, 87.8000 mm): Via [/ESP32-C3-02/GPIO18] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; warning
+    @(185.0000 mm, 80.6500 mm): Via [/ESP32-C3-02/SCL] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; warning
+    @(185.0000 mm, 80.6500 mm): Via [/ESP32-C3-02/SCL] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; warning
+    @(194.2500 mm, 80.1000 mm): Via [/ESP32-C3-02/MIC_OUT] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; warning
+    @(194.2500 mm, 80.1000 mm): Via [/ESP32-C3-02/MIC_OUT] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; warning
+    @(188.3000 mm, 81.4000 mm): Via [/ESP32-C3-02/PHOTO_C] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; warning
+    @(171.4000 mm, 105.7000 mm): Via [/ESP32-C3-02/BOOT] on F.Cu - B.Cu
+    @(111.7000 mm, 125.4000 mm): Zone [GND] on In1.Cu, priority 0
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; warning
+    @(171.4000 mm, 105.7000 mm): Via [/ESP32-C3-02/BOOT] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; warning
+    @(188.3000 mm, 81.4000 mm): Via [/ESP32-C3-02/PHOTO_C] on F.Cu - B.Cu
+    @(110.4500 mm, 105.7000 mm): Zone [3.3V] on In2.Cu, priority 1
+[silk_edge_clearance]: Silkscreen clipped by board edge (board setup constraints silk clearance 0.0500 mm; actual 0.0000 mm)
+    Rule: board setup constraints silk; warning
+    @(200.3431 mm, 79.0071 mm): Segment on Edge.Cuts
+    @(179.9760 mm, 72.8040 mm): Segment of U3 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge (board setup constraints silk clearance 0.0500 mm; actual 0.0000 mm)
+    Rule: board setup constraints silk; warning
+    @(200.3431 mm, 79.0071 mm): Segment on Edge.Cuts
+    @(197.9760 mm, 79.1340 mm): Segment of U3 on F.Silkscreen
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(125.1800 mm, 91.9800 mm): Footprint C4
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(128.2500 mm, 109.7500 mm): Footprint R5
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(122.4000 mm, 92.0200 mm): Footprint C5
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(121.6000 mm, 100.8000 mm): Footprint R10
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(149.3000 mm, 100.0500 mm): Footprint C9
+[lib_footprint_mismatch]: Footprint 'SOT-23' does not match copy in library 'Package_TO_SOT_SMD'
+    Local override; warning
+    @(164.1000 mm, 109.7500 mm): Footprint Q2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(119.5833 mm, 108.8125 mm): Footprint D3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(179.8850 mm, 96.0000 mm): Footprint C12
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(121.6000 mm, 96.6125 mm): Footprint D4
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(147.1000 mm, 109.8000 mm): Footprint C1
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(149.3500 mm, 104.1000 mm): Footprint R12
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(145.2000 mm, 95.9000 mm): Footprint R11
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(143.1908 mm, 120.2625 mm): Footprint J1
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(154.5000 mm, 112.7500 mm): Footprint R33
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(126.3000 mm, 82.6000 mm): Footprint R31
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(130.4500 mm, 92.0000 mm): Footprint U2
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(138.5000 mm, 98.0500 mm): Footprint R18
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(134.9625 mm, 79.6500 mm): Footprint R30
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(138.6625 mm, 81.9625 mm): Footprint R28
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(137.7500 mm, 107.2750 mm): Footprint F1
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(159.9000 mm, 91.1500 mm): Footprint C14
+[lib_footprint_mismatch]: Footprint 'SOT-23' does not match copy in library 'Package_TO_SOT_SMD'
+    Local override; warning
+    @(154.5375 mm, 109.3000 mm): Footprint Q3
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(165.0000 mm, 94.4750 mm): Footprint R22
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(199.9000 mm, 81.9000 mm): Footprint C25
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(130.5750 mm, 76.9125 mm): Footprint C18
+[lib_footprint_mismatch]: Footprint 'SOT-23-6' does not match copy in library 'Package_TO_SOT_SMD'
+    Local override; warning
+    @(143.2000 mm, 108.6625 mm): Footprint U5
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(130.2500 mm, 101.8000 mm): Footprint C2
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(123.2500 mm, 109.7500 mm): Footprint R1
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(123.2000 mm, 82.7000 mm): Footprint C20
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(130.0750 mm, 80.2625 mm): Footprint U8
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(138.5000 mm, 93.0000 mm): Footprint D6
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(188.9760 mm, 82.8040 mm): Footprint U3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(115.9000 mm, 79.5900 mm): Footprint J4
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(113.5000 mm, 113.0000 mm): Footprint R8
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(136.9625 mm, 77.6125 mm): Footprint R29
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(156.4500 mm, 86.8000 mm): Footprint C24
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(147.5000 mm, 86.4000 mm): Footprint C23
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(153.1000 mm, 103.0500 mm): Footprint R13
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(120.0750 mm, 119.2250 mm): Footprint J2
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(184.7000 mm, 96.6500 mm): Footprint C13
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(130.7000 mm, 109.7500 mm): Footprint R6
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(155.0725 mm, 76.6975 mm): Footprint U7
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(163.8000 mm, 120.7500 mm): Footprint SW1
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(136.7250 mm, 119.3750 mm): Footprint R3
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(129.9750 mm, 123.0250 mm): Footprint C6
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(164.1000 mm, 112.8500 mm): Footprint R34
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(146.9625 mm, 78.8000 mm): Footprint MK1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(130.3500 mm, 98.6250 mm): Footprint C3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(152.0900 mm, 85.2000 mm): Footprint Q1
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(138.6125 mm, 79.7000 mm): Footprint C17
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(152.2000 mm, 88.0000 mm): Footprint R23
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(150.9000 mm, 113.6500 mm): Footprint R32
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(135.0125 mm, 81.9625 mm): Footprint C19
+[lib_footprint_mismatch]: Footprint 'QFN-20-1EP_4x4mm_P0.5mm_EP2.5x2.5mm' does not match copy in library 'Package_DFN_QFN'
+    Local override; warning
+    @(130.9100 mm, 118.3600 mm): Footprint U1
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(116.5000 mm, 112.9375 mm): Footprint R7
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(161.5000 mm, 77.8000 mm): Footprint R25
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(194.1000 mm, 95.8000 mm): Footprint R19
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(133.7000 mm, 123.0000 mm): Footprint FB1
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(164.1000 mm, 115.0500 mm): Footprint C21
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(136.0000 mm, 93.0000 mm): Footprint D5
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(174.9750 mm, 86.4500 mm): Footprint R20
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(152.2000 mm, 100.1000 mm): Footprint C11
+[lib_footprint_mismatch]: Footprint 'PinHeader_1x05_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'
+    Local override; warning
+    @(114.9250 mm, 88.5650 mm): Footprint J6
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(154.9725 mm, 80.3000 mm): Footprint C15
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(154.5000 mm, 114.9500 mm): Footprint C22
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(113.4167 mm, 108.8125 mm): Footprint D2
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(138.7125 mm, 84.1125 mm): Footprint C16
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(167.5750 mm, 96.6250 mm): Footprint R16
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(174.9500 mm, 82.3400 mm): Footprint C7
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(124.8375 mm, 78.0000 mm): Footprint R17
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(116.5000 mm, 108.7500 mm): Footprint D1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(153.7000 mm, 120.7500 mm): Footprint SW2
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(136.9625 mm, 75.3500 mm): Footprint R27
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(130.0750 mm, 83.7625 mm): Footprint R26
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(166.0000 mm, 89.6000 mm): Footprint U6
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(119.5000 mm, 113.0000 mm): Footprint R9
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Footprints'
+    Local override; warning
+    @(184.0760 mm, 112.2000 mm): Footprint J3
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(177.9500 mm, 81.0000 mm): Footprint C8
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(158.9650 mm, 77.8000 mm): Footprint R24
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'
+    Local override; warning
+    @(146.4500 mm, 100.1000 mm): Footprint C10
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(136.0000 mm, 98.0500 mm): Footprint R14
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(125.7500 mm, 109.7500 mm): Footprint R2
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(136.7250 mm, 114.2750 mm): Footprint R4
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(176.3500 mm, 89.5250 mm): Footprint R15
+[text_thickness]: Text thickness out of range (TrueType font characters with insufficient stroke weight)
+    Rule: board setup constraints silk text thickness; warning
+    @(118.9000 mm, 76.0500 mm): PCB text 'GND' on F.Silkscreen
+[text_thickness]: Text thickness out of range (TrueType font characters with insufficient stroke weight)
+    Rule: board setup constraints silk text thickness; warning
+    @(119.0500 mm, 80.5500 mm): PCB text 'SDA' on F.Silkscreen
+[text_thickness]: Text thickness out of range (TrueType font characters with insufficient stroke weight)
+    Rule: board setup constraints silk text thickness; warning
+    @(119.1000 mm, 83.3500 mm): PCB text '3V3' on F.Silkscreen
+[silk_overlap]: Silkscreen clearance (board setup constraints silk clearance 0.0500 mm; actual 0.0000 mm)
+    Rule: board setup constraints silk; warning
+    @(154.8900 mm, 85.8000 mm): Circle of Q1 on F.Silkscreen
+    @(155.0000 mm, 83.7500 mm): Segment on F.Silkscreen
+[silk_overlap]: Silkscreen clearance (board setup constraints silk clearance 0.0500 mm; actual 0.0062 mm)
+    Rule: board setup constraints silk; warning
+    @(163.0000 mm, 83.8000 mm): PCB text 'Flash memory' on F.Silkscreen
+    @(159.1250 mm, 82.4750 mm): Segment on F.Silkscreen
+[silk_overlap]: Silkscreen clearance (board setup constraints silk clearance 0.0500 mm; actual 0.0086 mm)
+    Rule: board setup constraints silk; warning
+    @(120.5500 mm, 95.7125 mm): Segment of D4 on F.Silkscreen
+    @(117.4250 mm, 97.5000 mm): PCB text 'PWR' on F.Silkscreen
+[silk_overlap]: Silkscreen clearance (board setup constraints silk clearance 0.0500 mm; actual 0.0000 mm)
+    Rule: board setup constraints silk; warning
+    @(163.0000 mm, 83.8000 mm): PCB text 'Flash memory' on F.Silkscreen
+    @(170.5000 mm, 83.5000 mm): Arc on F.Silkscreen
+[silk_overlap]: Silkscreen clearance (board setup constraints silk clearance 0.0500 mm; actual 0.0125 mm)
+    Rule: board setup constraints silk; warning
+    @(163.0000 mm, 83.8000 mm): PCB text 'Flash memory' on F.Silkscreen
+    @(171.5000 mm, 83.5000 mm): Segment on F.Silkscreen
+[silk_overlap]: Silkscreen clearance (board setup constraints silk clearance 0.0500 mm; actual 0.0167 mm)
+    Rule: board setup constraints silk; warning
+    @(148.7500 mm, 124.7500 mm): Segment on F.Silkscreen
+    @(148.0500 mm, 124.1500 mm): Reference field of J1
+[silk_overlap]: Silkscreen clearance (board setup constraints silk clearance 0.0500 mm; actual 0.0000 mm)
+    Rule: board setup constraints silk; warning
+    @(167.2500 mm, 123.7500 mm): Arc on F.Silkscreen
+    @(164.7000 mm, 124.5000 mm): PCB text 'BOOT' on F.Silkscreen
+[silk_overlap]: Silkscreen clearance (board setup constraints silk clearance 0.0500 mm; actual 0.0000 mm)
+    Rule: board setup constraints silk; warning
+    @(168.2500 mm, 108.2500 mm): Segment on F.Silkscreen
+    @(164.7000 mm, 124.5000 mm): PCB text 'BOOT' on F.Silkscreen
+[silk_overlap]: Silkscreen clearance (board setup constraints silk clearance 0.0500 mm; actual 0.0409 mm)
+    Rule: board setup constraints silk; warning
+    @(154.0000 mm, 92.0000 mm): PCB text 'USB' on F.Silkscreen
+    @(157.0000 mm, 102.5000 mm): Segment on F.Silkscreen
+
+** Found 4 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(150.1000 mm, 119.2500 mm): Pad 2 [GND] of SW2 on F.Cu
+    @(147.4608 mm, 120.2625 mm): PTH pad S4 [GND] of J1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(160.2000 mm, 119.2500 mm): Pad 2 [GND] of SW1 on F.Cu
+    @(157.3000 mm, 120.6000 mm): Track [GND] on F.Cu, length 1.3500 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(150.1000 mm, 122.2500 mm): Track [/ESP32-C3-02/EN] on F.Cu, length 3.0000 mm
+    @(157.3000 mm, 122.2500 mm): Pad 3 [/ESP32-C3-02/EN] of SW2 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(167.4000 mm, 122.2500 mm): Pad 3 [/ESP32-C3-02/BOOT] of SW1 on F.Cu
+    @(160.2000 mm, 119.2500 mm): Track [/ESP32-C3-02/BOOT] on F.Cu, length 2.6500 mm
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Silkscreen clipped by solder mask
+    - Text height out of range
+    - PTH inside courtyard
+    - NPTH inside courtyard
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **
